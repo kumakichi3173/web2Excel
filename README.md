@@ -1,2 +1,0 @@
-# web2Excel
-JavaScript、CSS、HTMLを使用して作成したWebアプリからExcelシートを更新するシステム
