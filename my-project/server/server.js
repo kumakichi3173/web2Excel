@@ -3,11 +3,13 @@ const bodyParser = require('body-parser');
 const Excel = require('exceljs');
 const cors = require('cors');
 const app = express();
+const path = require('path');
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
-// このGETリクエストハンドラを追加
+// GETリクエストハンドラ
 app.get('/', (req, res) => {
     res.send('Welcome to the Excel update API!');
   });

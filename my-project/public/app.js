@@ -1,22 +1,20 @@
 document.getElementById('data-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+    e.preventDefault(); // フォームのデフォルト送信を阻止
 
+    // フォームのデータを取得
     const data1 = document.getElementById('data1').value;
     const data2 = document.getElementById('data2').value;
     
-    // サーバーサイドにPOSTリクエストを送信
-    fetch('/update-excel', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ data1, data2 }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+    // XMLHttpRequestを使用してサーバーサイドにPOSTリクエストを送信
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/update-excel', true);
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    xhr.onload = function() {
+    if (xhr.status === 200) {
+        alert('Excel was updated successfully!');
+    } else {
+        alert('Error: ' + xhr.status);
+    }
+    };
+    xhr.send(JSON.stringify({ data1: data1, data2: data2 }));
 });
