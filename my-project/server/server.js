@@ -29,6 +29,7 @@ app.post('/update-excel', async (req, res) => {
         await workbook.xlsx.writeFile('yourfile.xlsx'); // ファイルに書き込む
         res.status(200).send({ message: 'Excel updated successfully' });
     } catch (error) {
+        console.error(error); // エラー詳細をコンソールに出力
         res.status(500).send({ message: 'Failed to update Excel', error });
     }
 });
