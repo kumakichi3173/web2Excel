@@ -7,7 +7,7 @@ document.getElementById('data-form').addEventListener('submit', function(e) {
     
     // XMLHttpRequestを使用してサーバーサイドにPOSTリクエストを送信
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/update-excel', true);
+    xhr.open('POST', 'http://localhost:3000/update-excel', true);
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     xhr.onload = function() {
     if (xhr.status === 200) {

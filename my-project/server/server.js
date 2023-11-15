@@ -7,6 +7,7 @@ const path = require('path');
 
 app.use(cors());
 app.use(bodyParser.json());
+// publicディレクトリを静的ファイルの提供元として設定
 app.use(express.static(path.join(__dirname, 'public')));
 
 // GETリクエストハンドラ
